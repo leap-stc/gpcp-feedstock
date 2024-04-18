@@ -1,0 +1,11 @@
+# All the information important to cataloging.
+"ncviewjs:meta_yaml_url": "https://github.com/pangeo-forge/gpcp-feedstock/blob/main/feedstock/meta.yaml"
+tags:
+  - zarr
+  - pangeo-forge
+  - open-storage-network
+  - osn
+stores:
+  - id: gpcp
+    name: gpcp
+    url: "https://ncsa.osn.xsede.org/Pangeo/pangeo-forge/gpcp-feedstock/gpcp.zarr"
