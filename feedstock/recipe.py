@@ -1,7 +1,7 @@
 import xarray as xr 
 import fsspec 
 from distributed import Client
-
+from tqdm import tqdm 
 
 """
 Recipe adapted from: https://github.com/pangeo-forge/gpcp-feedstock/blob/main/feedstock/recipe.py
@@ -27,8 +27,9 @@ def main():
             lambda x: x.endswith('.nc'),
             fs.ls(url_base + str(year), detail=False)
         ))
-    
-    ds = xr.open_mfdataset(file_list, 
+
+    file_urls = [fsspec.open_local(f"simplecache::{uri}", simplecache={'cache_storage': '/tmp/fsspec_cache'}) for uri in tqdm(file_list)]
+    ds = xr.open_mfdataset(file_urls, 
                             parallel=True, engine='h5netcdf',coords="minimal", data_vars="minimal", compat='override')
 
     # ~ 100MB chunks
