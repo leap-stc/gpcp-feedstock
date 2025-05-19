@@ -5,7 +5,7 @@ tags:
   - ATMOSPHERE
   - PRECIPITATION
   - PRECIPITATION AMOUNT
-  
+
 stores:
   - id: gpcp
     name: gpcp
