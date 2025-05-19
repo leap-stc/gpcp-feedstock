@@ -1,1 +1,1 @@
-# gpcp-pangeo-forge-osn-feedstock
+# gpcp-feedstock
